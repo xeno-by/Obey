@@ -9,7 +9,7 @@ object build extends Build {
   lazy val commonDependencies = Seq(
     libraryDependencies <++= (scalaVersion)(sv => Seq(
       compiler(sv) % "provided",
-      Dependencies.tql,
+      Dependencies.meta,
       Dependencies.scalatest)) //addCompilerPlugin(paradise)
       //addCompilerPlugin(scalahost)
       )
