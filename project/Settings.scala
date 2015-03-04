@@ -26,6 +26,11 @@ object Settings {
       } else None
     }*/ ) ++ PublishSettings.publishSettings
 
+  /* Forcing version to be the same for the SBT plugin and for model and plugin. */
+  lazy val sbtPluginSettings: Seq[sbt.Def.Setting[_]] = Defaults.defaultSettings ++ Seq(
+    version := metaVersion
+  ) ++ PublishSettings.publishSettings
+
   lazy val flatLayout: Seq[sbt.Def.Setting[_]] = assemblySettings ++ Seq(
     scalaSource in Compile <<= (baseDirectory in Compile)(base => base),
     resourceDirectory in Compile <<= (baseDirectory in Compile)(base => base / "resources"))

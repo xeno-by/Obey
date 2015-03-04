@@ -29,5 +29,5 @@ object build extends Build {
   lazy val sbtPlug: Project = Project(
     id = "sbt-plugin",
     base = file("sbt-plugin"),
-    settings = PublishSettings.publishSettings ++ publishableSettings ++ List(sbtPlugin := true, name := "sbt-obeyplugin"))
+    settings = sbtPluginSettings ++ publishableSettings ++ List(sbtPlugin := true, name := "sbt-obeyplugin"))
 }
