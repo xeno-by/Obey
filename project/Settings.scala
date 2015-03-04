@@ -13,7 +13,6 @@ object Settings {
     version := metaVersion,
     organization := "org.obey",
     description := "Code Health compiler plugin for scalameta trees",
-    description := "Test Scala host for scala.meta",
     resolvers += Resolver.sonatypeRepo("snapshots"),
     resolvers += Resolver.sonatypeRepo("releases"),
     scalacOptions ++= Seq("-feature", "-deprecation", "-unchecked"),
