@@ -3,7 +3,7 @@ import sbt._
 
 object PublishSettings {
 	def publishSettings = Seq(
-		organization := "com.github.aghosn",
+		organization := "com.github.mdemarne",
 		publishMavenStyle := true,
 	    publishOnlyWhenOnMaster := publishOnlyWhenOnMasterImpl.value,
 	    publishTo <<= version { v: String =>
@@ -17,8 +17,8 @@ object PublishSettings {
 	    publishArtifact in Compile := false,
 	    publishArtifact in Test := false,
 	    pomExtra := (
-	      <url>https://github.com/aghosn/Obey</url>
-	      <inceptionYear>2014</inceptionYear>
+	      <url>https://github.com/mdemarne/Obey</url>
+	      <inceptionYear>2015</inceptionYear>
 	      <licenses>
 	        <license>
 	          <name>BSD-like</name>
@@ -27,12 +27,12 @@ object PublishSettings {
 	        </license>
 	      </licenses>
 	      <scm>
-	        <url>git://github.com/aghosn/Obey.git</url>
-	        <connection>scm:git:git://github.com/aghosn/Obey.git</connection>
+	        <url>git://github.com/mdemarne/Obey.git</url>
+	        <connection>scm:git:git://github.com/mdemarne/Obey.git</connection>
 	      </scm>
 	      <issueManagement>
 	        <system>GitHub</system>
-	        <url>https://github.com/aghosn/Obey/issues</url>
+	        <url>https://github.com/mdemarne/Obey/issues</url>
 	      </issueManagement>
 	    ),
 	    publishArtifact in (Compile, packageDoc) := false
