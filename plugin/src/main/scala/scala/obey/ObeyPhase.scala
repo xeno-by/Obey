@@ -31,9 +31,6 @@ trait ObeyPhase {
         val path = unit.source.path
         val punit = unit.body.metadata("scalameta").asInstanceOf[scala.meta.Tree]
 
-        //TODO this is just a test for the moment
-        //println("Loading ! "+Foo.rules)
-        //TODO remove this once loader works
         Keeper.instantiate
         val messageRules = UserOption.getReport
         val formattingRules = UserOption.getFormat
@@ -53,7 +50,7 @@ trait ObeyPhase {
             Persist.archive(path)
             Persist.persist(path, res.tree.get.toString)
             //Persist.persist(path, res.tree.get.show[Code])
-            warnings ++= res.result.map(m => Message("[CORRECTED]" + m.message, m.tree))
+            warnings ++= res.result.map(m => Message("[CORRECTED] " + m.message, m.tree))
           } else {
             warnings ++= res.result
           }

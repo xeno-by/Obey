@@ -52,7 +52,7 @@ object obeyplugin extends AutoPlugin {
     obeyWarn := "",
     obeyRules := "",
     commands ++= Seq(obeyCheckCmd, obeyFixCmd, obeyListRules),
-    addCompilerPlugin("com.github.aghosn" % "plugin_2.11.6" % "0.1.0-SNAPSHOT"),
+    addCompilerPlugin("com.github.mdemarne" % "plugin_2.11.6" % "0.1.0-SNAPSHOT"),
     scalacOptions ++= Seq(
       "-P:obey:fix:" + obeyFix.value,
       "-P:obey:warn:" + obeyWarn.value,

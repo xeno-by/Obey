@@ -17,13 +17,7 @@ object Settings {
     resolvers += Resolver.sonatypeRepo("releases"),
     scalacOptions ++= Seq("-feature", "-deprecation", "-unchecked"),
     parallelExecution in Test := false, // hello, reflection sync!!
-    logBuffered := false /*scalaHome := {
-      val scalaHome = System.getProperty("scalahost.scala.home") //TODO Change this maybe 
-      if (scalaHome != null) {
-        println(s"Going for custom scala home at $scalaHome")
-        Some(file(scalaHome))
-      } else None
-    }*/ ) ++ PublishSettings.publishSettings
+    logBuffered := false) ++ PublishSettings.publishSettings
 
   /* Forcing version to be the same for the SBT plugin and for model and plugin. */
   lazy val sbtPluginSettings: Seq[sbt.Def.Setting[_]] = Defaults.defaultSettings ++ Seq(
