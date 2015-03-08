@@ -6,5 +6,6 @@ class DisplayTest extends FunSuite {
 
   test("Display the names of rules") {
     Keeper.rules.foreach(r => println(r))
+    assert(Keeper.rules.size > 0)
   }
 } 

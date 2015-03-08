@@ -14,12 +14,12 @@ class testParser extends FunSuite {
 
   test("Parsing set and filtering") {
     UserOption.addTags("fix:+{List*}")
-    println(UserOption.getFormat)
+    assert(UserOption.getFormat.size > 0)
   }
 
   test("Parsing multiple arguments") {
-    val res = SetParser.parse("+{List; Var}")
-    println(s"$res from the set Parser")
+    val (plus, minus) = SetParser.parse("+{List; Var}-{Val}")
+    assert(plus.size == 2 && minus.size == 1)
   }
 
   test("Parsing with SetParser") {

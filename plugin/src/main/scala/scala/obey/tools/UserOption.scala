@@ -12,7 +12,7 @@ object UserOption {
 
   val optMap: Map[String, Holder] = Map("all:" -> all, "fix:" -> format, "warn:" -> report)
 
-  /* Get rules for a holder according to the 'all' filter*/
+  /* Get rules for a holder according to the 'all' filter */
   def getRules(h: Holder): Set[Rule] = {
     if (!h.use)
       return Set()
@@ -20,9 +20,9 @@ object UserOption {
     filter(h.pos, h.neg)(allRules)
   }
 
-  /* All methods to get the correct rules to apply*/
+  /* All methods to get the correct rules to apply */
   def getFormat: Set[Rule] = getRules(format)
-  /* Avoids traversing the tree twice for format and warnings*/
+  /* Avoids traversing the tree twice for format and warnings */
   def getReport: Set[Rule] = getRules(report) -- getFormat
 
   def addTags(opts: String): Unit = optMap.find(e => opts.startsWith(e._1)) match {
@@ -36,7 +36,7 @@ object UserOption {
       h.pos ++= tags._1
       h.neg ++= tags._2
       h.use = true
-    case _ => /*Nothing to do*/
+    case _ => /* Nothing to do */
   }
 
   override def toString = {
