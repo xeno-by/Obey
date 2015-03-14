@@ -13,7 +13,7 @@ The compiler plugin defines the following options:
 * fix:<OFL> enables to select the rules that will automatically correct the source code
 * addRules:<path to compiled classes> enables to add user-defined rules to a project
 
-The option filtering language (OFL) correponds to the following parser: 
+The option filtering language (OFL) corresponds to the following parser: 
 ~~~
 tag := “[\w\*]+”.r
 tags := “{” ~ tag ~ (“[;,]”.r ~ tag).* ~ “}”
