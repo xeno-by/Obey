@@ -31,7 +31,6 @@ trait ObeyPhase {
         val path = unit.source.path
         val punit = unit.body.metadata("scalameta").asInstanceOf[scala.meta.Tree]
 
-        Keeper.instantiate
         val messageRules = UserOption.getReport
         val formattingRules = UserOption.getFormat
         var warnings: List[Message] = Nil

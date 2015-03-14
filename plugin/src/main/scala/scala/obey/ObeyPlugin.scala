@@ -27,22 +27,20 @@ class ObeyPlugin(val global: Global) extends PluginBase with ObeyPhase {
     options.foreach {
       opt =>
         if (opt.endsWith(":")) {
-          //Nothing to do 
+          //Nothing to do
         } else if (opt.startsWith("addRules:")) {
           val opts = opt.substring("addRules:".length)
-          Keeper.loadedRules = (new Loader(opts)).rules.toSet
-          reporter.info(NoPosition, "Obey add rules from: " + opts, true)
+          Keeper.loadedRules = new Loader(opts, context).rules.toSet
+          // reporter.info(NoPosition, "Obey add rules from: " + opts, true)
         } else if (UserOption.optMap.keys.exists(s => opt.startsWith(s))) {
           UserOption.addTags(opt)
-          reporter.info(NoPosition, "Tag Filters:\n" + UserOption.toString, true)
+          // reporter.info(NoPosition, "Tag Filters:\n" + UserOption.toString, true)
         } else if (regexp.matcher(opt).matches) {
           UserOption.disallow
-          reporter.info(NoPosition, "List of Rules available:", true)
-          Keeper.instantiate
-          reporter.info(NoPosition, Keeper.rules.mkString("\n"), true)
+          // reporter.info(NoPosition, "List of Rules available:", true)
+          // reporter.info(NoPosition, Keeper.rules.mkString("\n"), true)
         } else if (opt.equals("ListRules")) {
-          reporter.info(NoPosition, "List of selected Rules:", true)
-          Keeper.instantiate
+          // reporter.info(NoPosition, "List of selected Rules:", true)
           val reports = UserOption.getReport
           val fixes = UserOption.getFormat
           if (!reports.isEmpty)
@@ -58,12 +56,12 @@ class ObeyPlugin(val global: Global) extends PluginBase with ObeyPhase {
 
   override val optionsHelp: Option[String] = Some("""
     | -P:obey:
-    |   all:                Specifies filters for all 
+    |   all:                Specifies filters for all
     |   fix:                Specifies filters for format
     |   warn:               Specifies filter for warnings
     |   addRules:           Specifies user defined rules
     |   ListRules           Lists the rules to be used in the plugin
     |   ListRules: -all     Lists all the rules available
-    |   
+    |
     """)
 }

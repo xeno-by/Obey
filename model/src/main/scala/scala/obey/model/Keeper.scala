@@ -13,9 +13,7 @@ object Keeper {
 
   var loadedRules: Set[Rule] = Set()
 
-  var instantiatedRules: Set[Rule] = Set()
-
-  def rules = basicRules ++ loadedRules ++ instantiatedRules
+  def rules = basicRules ++ loadedRules
 
   /*Enables to efficiently handle the tags*/
   case class TagFilter(pos: Set[Pattern], neg: Set[Pattern]) {
@@ -37,10 +35,4 @@ object Keeper {
   def filterT(pos: Set[Tag], neg: Set[Tag]): Set[Rule] = {
     filter(pos, neg)(rules)
   }
-
-  def instantiate(implicit c: Context) {
-    // instantiatedRules = Set(new ExplicitImplicitTypes())
-    instantiatedRules = Set()
-  }
-
 }
