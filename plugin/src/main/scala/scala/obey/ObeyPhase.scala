@@ -15,7 +15,7 @@ trait ObeyPhase {
 
   object ObeyComponent extends NscPluginComponent {
     val global: self.global.type = self.global
-    implicit val context =  scala.meta.internal.hosts.scalac.Scalahost.mkSemanticContext(global)
+    implicit val context = Scalahost.mkGlobalContext(global)
 
     import global._
 

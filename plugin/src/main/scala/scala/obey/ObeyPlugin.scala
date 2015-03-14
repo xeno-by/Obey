@@ -10,11 +10,12 @@ import scala.obey.model._
 import scala.obey.tools._
 import scala.tools.nsc.Global
 import scala.tools.nsc.plugins.{ PluginComponent => NscPluginComponent }
+import scala.meta._
 import scala.meta.internal.hosts.scalac.PluginBase
 
 class ObeyPlugin(val global: Global) extends PluginBase with ObeyPhase {
   import global._
-  implicit val context = scala.meta.internal.hosts.scalac.Scalahost.mkSemanticContext(global)
+  implicit val context = Scalahost.mkGlobalContext(global)
 
   val regexp = "ListRules:\\W*-all\\W*".r.pattern
   val name = "obey"
